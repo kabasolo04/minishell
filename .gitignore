@@ -16,3 +16,4 @@
 # Ignore VSCode specific files and folders
 .vscode/
 *.code-workspace
+
