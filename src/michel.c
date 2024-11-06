@@ -6,7 +6,7 @@
 /*   By: kabasolo <kabasolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 12:41:11 by kabasolo          #+#    #+#             */
-/*   Updated: 2024/09/26 15:26:47 by kabasolo         ###   ########.fr       */
+/*   Updated: 2024/11/06 19:05:49 by kabasolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,15 +58,15 @@ int	analize(char *line, t_tokens *token)
 	cmd_len = (int)ft_strlen(token->cmd[0]);
 	booly = stat(token->path, &sb);
 	if (booly != 0 && slash_len != cmd_len)
-		ft_printf("bash: %s: No such file or directory\n", token->cmd[0]);
+		ft_dprintf(2, "bash: %s: No such file or directory\n", token->cmd[0]);
 	else if (booly == 0 && S_ISDIR(sb.st_mode))
-		ft_printf("bash: %s: Is a directory\n", token->cmd[0]);
+		ft_dprintf(2, "bash: %s: Is a directory\n", token->cmd[0]);
 	else if (access(token->path, X_OK) == 0)
 		return (1);
 	else if (slash_len != cmd_len)
-		ft_printf("bash: %s: Permission denied\n", token->cmd[0]);
+		ft_dprintf(2, "bash: %s: Permission denied\n", token->cmd[0]);
 	else if (token->cmd[0][0] != '\0')
-		ft_printf("%s: command not found\n", token->cmd[0]);
+		ft_dprintf(2, "%s: command not found\n", token->cmd[0]);
 	return (status(127), 0);
 }
 
