@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execution.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: muribe-l <muribe-l@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: kabasolo <kabasolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 18:38:04 by kabasolo          #+#    #+#             */
-/*   Updated: 2024/09/26 12:35:52 by muribe-l         ###   ########.fr       */
+/*   Updated: 2024/11/06 18:59:39 by kabasolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ static int	child(int infile, int outfile, t_tokens *tokens)
 		ft_dprintf(2, "%s: command not found\n", tokens->cmd[0]);
 		return ((void)status(127), 0);
 	}
+	ft_printf("%d\n", tokens->infile);
+	ft_printf("%d\n", tokens->outfile);
 	init_signals(1);
 	pid = fork();
 	if (pid == 0)
