@@ -6,7 +6,7 @@
 /*   By: kabasolo <kabasolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 18:38:04 by kabasolo          #+#    #+#             */
-/*   Updated: 2024/11/06 19:05:14 by kabasolo         ###   ########.fr       */
+/*   Updated: 2025/02/05 11:49:38 by kabasolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ static int	child(int infile, int outfile, t_tokens *tokens)
 		ft_dprintf(2, "%s: command not found\n", tokens->cmd[0]);
 		return ((void)status(127), 0);
 	}
-	ft_printf("%d\n", tokens->infile);
-	ft_printf("%d\n", tokens->outfile);
 	init_signals(1);
 	pid = fork();
 	if (pid == 0)
